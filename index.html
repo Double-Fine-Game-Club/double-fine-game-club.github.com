@@ -40,6 +40,7 @@
 			
 			
 		</style>
+		<script type="text/javascript" src="http://dfgc.jbushproductions.com/microtime2.php" async="async"></script>
 	</head>
 	<body>
 		<nav id = 'navMenu'>
@@ -110,10 +111,7 @@
 			<!-- for anybody who cares, this page was by Cheeseness (http://jbushproductions.com) to be HTML5 and CSS3 compliant, with additional Javascript by leitu. Inspired by http://ogweekly.com (when it was running weekly) -->
 		</footer>
 		<script type="text/javascript">
-		(function(){
-			// Initialised with server time via PHP using microtime(true)
-			var serverTime = null; 
-		
+		(function(){		
 			// Event configuration
 			var eventDOW = 6; // Day of week .. 0-6, where 0 = Sun, 6 = Sat (Saturday)
 			var eventTime = 19 * 60 * 60 * 1000; // How many msec from midnight in UTC is the event (19:00)
@@ -205,14 +203,22 @@
 			// Timer update logic
 			var updateTimer = (function() {
 			
-				// If we have server time, calculate the difference to it
-				var serverTimeDiff = (serverTime ? (new Date().getTime()) - Math.floor(serverTime * 1000) : 0);
-			
+				// By default we don't know the server time diff
+				var serverTimeDiff = 0;
+						
 				// Cache the countdown element
 				var countdownElement = document.getElementById('countdownText');
 		
 				// Make current time accesible for all the functions in this scope
 				var currentTime = null;
+				
+				var checkServerTime = function() {
+					// If we have server time, calculate the difference to it
+					if (serverTimeDiff === 0 && typeof serverTime !== 'undefined') {
+						serverTimeDiff = (typeof serverTime !== "undefined"? (new Date().getTime()) - Math.floor(serverTime * 1000) : 0);
+						// console.log('Found server time, diff now: ' + serverTimeDiff + ' msec');
+					}
+				};
 	
 				// Get the time of the next event
 				var getNextEventTime = function() {
@@ -308,6 +314,9 @@
 			
 				// What to do on each tick of the clock
 				var tick = function() {
+				
+					// Check if we have server time and calculate diff if we do
+					checkServerTime();
 				
 					// Get the current time (unix timestamp in msec)
 					currentTime = new Date().getTime() - serverTimeDiff;
