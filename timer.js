@@ -378,6 +378,4 @@ initInterval = setInterval((function() {
 	};
 })(), 100);
 
-// And show the chat
-showChat();
 })();
