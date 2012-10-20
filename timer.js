@@ -378,11 +378,6 @@ initInterval = setInterval((function() {
 	};
 })(), 100);
 
-
-<<<<<<< HEAD
 // And show the chat
 showChat();
 })();
-=======
-})();
->>>>>>> c3cd04aa8f0863e6b006898ff5d445359d52a876
