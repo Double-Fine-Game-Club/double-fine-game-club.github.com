@@ -60,7 +60,8 @@
 (function(){		
 // Event configuration
 var eventDOW = 6; // Day of week .. 0-6, where 0 = Sun, 6 = Sat (Saturday)
-var eventTime = 19 * 60 * 60 * 1000; // How many msec from midnight in UTC is the event (19:00)
+//var eventTime = 19 * 60 * 60 * 1000; // How many msec from midnight in UTC is the event (19:00)
+var eventTime = 21 * 60 * 60 * 1000; // Moved to 21:00 for the S&M HTR stream
 var eventLength = 1.5 * 60 * 60 * 1000; // Approximate event length in msec (1.5hrs)
 
 var log = function() {
