@@ -191,6 +191,12 @@ var initTimer = function() {
 				
 		// Cache the countdown element
 		var countdownElement = document.getElementById('countdownText');
+
+		// Cache the timeanddate.com link element
+		var timeanddateElement = document.getElementById('timeanddateLink');
+		
+		// Cache the time indicator element
+		var timeElement = document.getElementById('timeIndicator');
 		
 		// Check that it actually exists, abort if not
 		if (!countdownElement) {
@@ -321,6 +327,40 @@ var initTimer = function() {
 			
 			// Update countdown element
 			countdownElement.innerHTML = text;
+
+			//Make a date object to grab the year, month, date and time out of
+			var targetTime = new Date(nextEventTime);
+
+			
+			//TODO: These probably don't need to be done every tick, but this is the most convenient place to access nextEventTime for the moment
+			if (timeanddateElement) {
+
+				//Build the URL for the timeanddate.com link
+				text = "http://www.timeanddate.com/worldclock/fixedtime.html?msg=Double+Fine+Game+Club+Weekly+Stream+And+Discussion&iso=" + targetTime.getFullYear();
+
+				//FIXME: For some reason that I don't understand, getUTCMonth() is returning the previous month
+				text = text + (targetTime.getUTCMonth() + 1 < 10 ? "0" + targetTime.getUTCMonth() + 1 : targetTime.getUTCMonth() + 1 );
+				
+				text = text + (targetTime.getUTCDate() < 10 ? "0" + targetTime.getUTCDate() : targetTime.getUTCDate());
+				text = text + "T";
+				text = text + (targetTime.getUTCHours() < 10 ? "0" + targetTime.getUTCHours() : targetTime.getUTCHours());
+				text = text + (targetTime.getUTCMinutes() < 10 ? "0" + targetTime.getUTCMinutes() : targetTime.getUTCMinutes());
+				text = text + "&ah=2";
+							
+				//Update the timeanddate.com link
+				timeanddateElement.href = text;
+			}
+			
+			if (timeElement) {
+
+
+				text = (targetTime.getUTCHours() <= 12 ? targetTime.getUTCHours() : targetTime.getUTCHours() - 12) + ":";
+				text = text + (targetTime.getUTCMinutes() < 10 ? "0" + targetTime.getUTCMinutes() : targetTime.getUTCMinutes());
+				
+				text = text + (targetTime.getUTCHours() <= 12 ? "am" : "pm") + " UTC";
+				
+				timeElement.innerHTML = text;
+			}
 		};
 		
 		// Return the tick function as our "external interface"
