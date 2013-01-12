@@ -340,8 +340,8 @@ var initTimer = function() {
 
 			//TODO: These probably don't need to be done every tick, but this is the most convenient place to access nextEventTime for the moment
 
-			//FIXME: For some reason that I don't understand, getUTCMonth() is returning the previous month
-			text = text + (targetTime.getUTCMonth() + 1 < 10 ? "0" + targetTime.getUTCMonth() + 1 : targetTime.getUTCMonth() + 1 );
+			//FIXME: For some reason that I don't understand, getUTCMonth() is returning the previous month, and has a preceding zero?
+			text = text + (targetTime.getUTCMonth() + 1 < 10 ? "0" + (targetTime.getUTCMonth() + 1) : targetTime.getUTCMonth() + 1 );
 			
 			text = text + (targetTime.getUTCDate() < 10 ? "0" + targetTime.getUTCDate() : targetTime.getUTCDate());
 			text = text + "T";
