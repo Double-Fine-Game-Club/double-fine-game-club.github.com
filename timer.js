@@ -82,6 +82,7 @@ var initChat = function() {
 		'main',
 		'openChat',
 		'hideChat',
+		'wideChat',
 		'showChat',
 		'live_embed_player_flash'
 	];
@@ -98,7 +99,28 @@ var initChat = function() {
 			
 	// Get the chat IFRAME
 	var chatVisible = false;
+	var chatWide = false;
 	var getChat = (function() {
+
+		// Internal cache
+		var chat = null;
+		
+		// Function to actually return/create it
+		return function(create) {
+			// If no chat element yet, and we're allowed to create it
+			if (chat === null && create) {
+			
+				// Create an IFRAME, set it's source to the chat URL
+				chat = document.createElement('iframe');
+				chat.src = chatUrl;
+			}
+
+			// Return the element
+			return chat;
+		}
+	})();
+
+	var getVideo = (function() {
 
 		// Internal cache
 		var chat = null;
@@ -127,6 +149,31 @@ var initChat = function() {
 			// Remove it from it's parent node
 			chat.parentNode.removeChild(chat);
 			chatVisible = false;
+		}
+
+	};
+
+	// Shrink the video and pop the chat element beside it
+	var wideChat = function() {
+		// Get the chat, if it exists
+		var chat = getChat(false);
+		var main = document.getElementById('main');
+		var video = document.getElementById('live_embed_player_flash');
+		// If it did
+		if (!chatWide) {
+			// Remove it from it's parent node
+			chat.style.width = "60%";
+			video.style.width = "40%";
+			main.style.marginLeft = "40px";
+			main.style.marginRight = "40px";
+			chatWide = true;
+		}
+		else {
+			chat.style.width = "100%";
+			video.style.width = "100%";
+			main.style.marginLeft = "20%";
+			main.style.marginRight = "20%";
+			chatWide = false;
 		}
 
 	};
@@ -175,7 +222,18 @@ var initChat = function() {
 		event.preventDefault();
 		return false;
 	};
-	
+
+
+	// "Wide chat pane" -link
+	document.getElementById('wideChat').onclick = function(event) {
+		wideChat();
+
+		// Stop the default click action from happening
+		event.preventDefault();
+		return false;
+	};
+
+
 	// Show the chat
 	showChat();
 	

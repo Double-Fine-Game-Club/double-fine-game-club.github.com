@@ -19,7 +19,7 @@ article { text-align: justify; margin: 0 20% 60px 20%; border: 1px solid #7d3516
 article p { margin: 1em 30px; }
 article ul { margin: 1em 30px; }
 article h1 { margin: 1em 30px; }
-article iframe {border: 0; background-color: black; width: 100%; height: 380px; }
+article iframe {border: 0; background-color: black; width: 100%; height: 378px; }
 article object { width: 100%; }
 #countdown { }
 #timeConversion { font-size: small; margin-top: 0px; font-style: italic; }
