@@ -12,6 +12,8 @@ body { text-align: center; background-image: url(../images/background.png); back
 #pageHeader h1 { font-variant: small-caps; font-size: 2em;  margin: 0; font-family: TeXGyreTermesRegular,Times,Roman,serif; }
 #pageHeader h2 { font-style: italic; font-size: 1em; margin: 0; }
 #pageHeader h3 { font-weight: normal; margin: 1em 0 0 0; }
+#pageHeader h1 sup { position:absolute; font-size: 0.5em; }
+#pageHeader a { text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.25); }
 #navMenu { width: 800px; margin-left: auto; margin-right: auto; }
 #navMenu ul { text-align: center; list-style-type: none; margin: 0; padding: 0; margin-top: 1em;}
 #navMenu ul li { display: inline; background-color: white; padding: 1em; }
