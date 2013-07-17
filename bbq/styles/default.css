@@ -35,5 +35,7 @@ a:hover { text-decoration: underline; }
 .leftImage { margin-left: 700px; }
 .rightImage:hover, .leftImage:hover { transform: rotate(0deg) !important; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.75); }
 .ozralia { margin-top: -115px; display: block; position: absolute; margin-left: 700px; transform: rotate(8deg); }
+.warning { font-weight: bold; font-style: italic; margin-bottom: 1em;}
+.warning img { margin-top: -15px; float: right; };
 #logo {position: relative; margin-top: 1em; margin-bottom: -2em;}
 .clearfix { clear: both; }
