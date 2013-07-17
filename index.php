@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/png" href="images/dfgc_fav.png" />
 		<style type = 'text/css'>
-	
 			@font-face {
 			    font-family: 'TeXGyreTermesRegular';
 			    src: url('fonts/texgyretermes-regular-webfont.eot');
