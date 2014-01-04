@@ -30,3 +30,6 @@ a:hover { text-decoration: underline; }
 .leftImage { float: left; clear: left; border: 0; padding: 0 }
 #logo {position: relative; left: 50%; margin-left: -75px; margin-top: 1em; margin-bottom: -3em;}
 .clearfix { clear: both; }
+
+.colourTime { background-color: #b00355; display: inline-block;  padding: 0.5em; border: 1px solid #d1631f; border-radius: 0.5em 0.5em; box-shadow: 0 0 0 1px #7d3516, 0px 2px 5px 2px rgba(0, 0, 0, 0.25);}
+.colourTime, .colourTime a { color: white !important; text-decoration: none !important; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5) !important; }
