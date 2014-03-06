@@ -95,7 +95,7 @@ var initChat = function() {
 	}
 
 	// URL to the mibbit chat
-	var chatUrl = 'http://widget.mibbit.com/?server=irc.foonetic.net&amp;channel=%23DFAdventure&amp;nick=GameClubFan_??????&amp;noServerMotd=true&amp;settings=e45b6397f1cdd3f1e3db04091b842551';
+	var chatUrl = 'https://widget.mibbit.com/?server=irc.foonetic.net&amp;channel=%23DFAdventure&amp;nick=GameClubFan_??????&amp;noServerMotd=true&amp;settings=e45b6397f1cdd3f1e3db04091b842551';
 			
 	// Get the chat IFRAME
 	var chatVisible = false;
