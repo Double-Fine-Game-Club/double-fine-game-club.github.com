@@ -375,7 +375,7 @@ var initTimer = function() {
 		
 			// Get the current time (unix timestamp in msec)
 			currentTime = new Date().getTime() - serverTimeDiff;
-			log('Current time: ' + new Date(currentTime));
+			//log('Current time: ' + new Date(currentTime));
 		
 			// Get the time of the next event
 			var nextEventTime = targetTime
@@ -442,7 +442,7 @@ var initTimer = function() {
 
 
 // Try initializing the chat and timer code until it works
-var targetTime = new Date(Date.UTC (2013, 07 -1, 20, 2, 30, 0, 0));
+var targetTime = new Date(Date.UTC (2014, 11 -1, 1, 3, 0, 0, 0));
 var initInterval = null;
 var initCount = 0;
 
