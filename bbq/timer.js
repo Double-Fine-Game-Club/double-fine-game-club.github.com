@@ -385,7 +385,12 @@ var initTimer = function() {
 
 			// Say "Right now!" if it's going on right now, otherwise format the time remaining
 			var text = (timeRemaining <= 0 ? 'Right now!' : formatMsec(timeRemaining));
-			
+
+			if (timeRemaining < 3600000)
+			{
+				text = "It's over!"
+			}
+
 			// Update countdown element
 			countdownElement.innerHTML = text;
 
@@ -442,7 +447,7 @@ var initTimer = function() {
 
 
 // Try initializing the chat and timer code until it works
-var targetTime = new Date(Date.UTC (2014, 11 -1, 1, 3, 0, 0, 0));
+var targetTime = new Date(Date.UTC (2016, 11 -1, 5, 2, 0, 0, 0));
 var initInterval = null;
 var initCount = 0;
 
